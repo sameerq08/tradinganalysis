@@ -17,7 +17,17 @@ class _SplashState extends State<Splash> {
       height: myHeight,
       width: myWidth,
       child: Column(
-        children: [Image.asset('assets/image/1.gif')],
+        children: [
+          Image.asset('assets/image/1.gif'),
+          Text(
+            'The Future',
+            style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            'Lean more about Trading',
+            style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+          )
+        ],
       ),
     ));
   }
