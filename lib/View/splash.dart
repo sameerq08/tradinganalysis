@@ -17,15 +17,43 @@ class _SplashState extends State<Splash> {
       height: myHeight,
       width: myWidth,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Image.asset('assets/image/1.gif'),
-          Text(
+          const Text(
             'The Future',
             style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
           ),
-          Text(
+          const Text(
             'Lean more about Trading',
-            style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 50, fontWeight: FontWeight.bold, color: Colors.green),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: myWidth * 0.14),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: const Color(0xffFBC700),
+                  borderRadius: BorderRadius.circular(50)),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: myWidth * 0.05, vertical: myHeight * 0.013),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'CREATE PORTFOLIO',
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.normal),
+                    ),
+                    RotationTransition(
+                      turns: AlwaysStoppedAnimation(310 / 360),
+                      child: Icon(Icons.arrow_forward_rounded),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           )
         ],
       ),
