@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:tradinganalysis/View/Components/item.dart';
 
 import '../Model/coinmodel.dart';
 
@@ -136,7 +137,7 @@ class _HomeState extends State<Home> {
                         : ListView.builder(
                             itemCount: coinMarket!.length,
                             itemBuilder: (context, indext) {
-                              return const Text('data');
+                              return Item();
                             }),
                   )
                 ],
