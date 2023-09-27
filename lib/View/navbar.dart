@@ -39,7 +39,7 @@ class _NavBarState extends State<NavBar> {
               BottomNavigationBarItem(
                   icon: Image.asset(
                     'assets/icons/1.1.png',
-                    height: myHeight * 0.03,
+                    height: myHeight * 0.02,
                     color: Colors.grey,
                   ),
                   label: '',
@@ -50,7 +50,7 @@ class _NavBarState extends State<NavBar> {
               BottomNavigationBarItem(
                   icon: Image.asset(
                     'assets/icons/2.1.png',
-                    height: myHeight * 0.03,
+                    height: myHeight * 0.02,
                     color: Colors.grey,
                   ),
                   label: '',

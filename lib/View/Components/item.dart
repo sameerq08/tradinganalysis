@@ -1,3 +1,4 @@
+import 'package:chart_sparkline/chart_sparkline.dart';
 import 'package:flutter/material.dart';
 
 class Item extends StatelessWidget {
@@ -26,7 +27,8 @@ class Item extends StatelessWidget {
               children: [
                 Text(
                   item.id,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   '0.4' + item.symbol,
@@ -36,7 +38,46 @@ class Item extends StatelessWidget {
                       color: Colors.grey),
                 )
               ],
-            )
+            ),
+            SizedBox(
+              width: myWidth * 0.03,
+            ),
+            Container(
+              height: myHeight * 0.05,
+              width: myWidth * 0.1,
+              child: Sparkline(
+                data: item.sparklineIn7D.price,
+                lineWidth: 2.0,
+                lineColor: Colors.red,
+                fillMode: FillMode.below,
+                fillGradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: const [0.0, 0.7],
+                    colors: [Colors.red, Colors.red.shade100]),
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '\$ ' + item.currentPrice.toString(),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      item.priceChange24H.toString(),
+                      style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ],
         ),
       ),

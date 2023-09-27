@@ -135,9 +135,11 @@ class _HomeState extends State<Home> {
                             child: CircularProgressIndicator(),
                           )
                         : ListView.builder(
-                            itemCount: coinMarket!.length,
-                            itemBuilder: (context, indext) {
-                              return Item();
+                            itemCount: 4,
+                            itemBuilder: (context, index) {
+                              return Item(
+                                item: coinMarket![index],
+                              );
                             }),
                   )
                 ],
