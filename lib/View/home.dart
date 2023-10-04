@@ -129,6 +129,9 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: myHeight * 0.02,
+                  ),
                   Expanded(
                     child: isRefreshing == true
                         ? Center(
@@ -141,7 +144,13 @@ class _HomeState extends State<Home> {
                                 item: coinMarket![index],
                               );
                             }),
-                  )
+                  ),
+                  Container(
+                    child: Text(
+                      'Recommend to Buy',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
                 ],
               ),
             ),
