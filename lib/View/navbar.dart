@@ -39,12 +39,13 @@ class _NavBarState extends State<NavBar> {
               BottomNavigationBarItem(
                   icon: Image.asset(
                     'assets/icons/1.1.png',
-                    height: myHeight * 0.02,
+                    height: myHeight * 0.01,
                     color: Colors.grey,
                   ),
                   label: '',
                   activeIcon: Image.asset(
                     'assets/icons/1.2.png',
+                    height: myHeight * 0.02,
                     color: const Color(0xffFBC700),
                   )),
               BottomNavigationBarItem(

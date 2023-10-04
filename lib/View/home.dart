@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:tradinganalysis/View/Components/item.dart';
 
 import '../Model/coinmodel.dart';
+import 'Components/item2.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -44,8 +45,7 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: myWidth * 0.02, vertical: myHeight * 0.005),
+                    padding: EdgeInsets.symmetric(horizontal: myWidth * 0.02),
                     decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.5),
                         borderRadius: BorderRadius.circular(5)),
@@ -66,7 +66,8 @@ class _HomeState extends State<Home> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: myWidth * 0.07),
+              padding: EdgeInsets.symmetric(
+                  horizontal: myWidth * 0.07, vertical: myHeight * 0.001),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -90,7 +91,7 @@ class _HomeState extends State<Home> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: myWidth * 0.07),
-              child: Row(
+              child: const Row(
                 children: [
                   Text(
                     '+ 162% all time',
@@ -134,7 +135,7 @@ class _HomeState extends State<Home> {
                   ),
                   Expanded(
                     child: isRefreshing == true
-                        ? Center(
+                        ? const Center(
                             child: CircularProgressIndicator(),
                           )
                         : ListView.builder(
@@ -143,17 +144,60 @@ class _HomeState extends State<Home> {
                               return Item(
                                 item: coinMarket![index],
                               );
-                            }),
+                            },
+                          ),
                   ),
-                  Container(
-                    child: Text(
-                      'Recommend to Buy',
-                      style: TextStyle(fontSize: 20),
+                  SizedBox(
+                    height: myHeight * 0.02,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: myWidth * 0.05),
+                    child: const Row(
+                      children: [
+                        Text(
+                          'Recommend to Buy',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
+            SizedBox(
+              height: myHeight * 0.01,
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(left: myWidth * 0.03),
+                child: isRefreshing == true
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                          color: Color(0xffFBC700),
+                        ),
+                      )
+                    : coinMarket == null || coinMarket!.isEmpty
+                        ? Padding(
+                            padding: EdgeInsets.all(myHeight * 0.06),
+                            child: const Center(
+                              child: Text(
+                                'Attention this Api is free, so you cannot send multiple requests per second, please wait and try again later.',
+                                style: TextStyle(fontSize: 18),
+                              ),
+                            ),
+                          )
+                        : ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: coinMarket!.length,
+                            itemBuilder: (context, index) {
+                              return Item2(
+                                item: coinMarket![index],
+                              );
+                            },
+                          ),
+              ),
+            )
           ],
         ),
       ),
